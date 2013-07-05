@@ -73,7 +73,7 @@ endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.AX.version=$(AX_VERSION) \
-  ro.modversion=Aosp+-$(AX_VERSION) \
+  ro.modversion=Ax-$(AX_VERSION) \
   ro.goo.developerid=Lloir \
   ro.goo.rom=Aosp+ \
   ro.goo.version=$(shell date +%s)
