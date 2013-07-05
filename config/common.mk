@@ -27,6 +27,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGE_OVERLAYS += vendor/ax/overlay/dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/ax/overlay/common
 
+#SuperUserEmbedding
+SUPERUSER_EMBEDDED := true
+SUPERUSER_PACKAGE_PREFIX := com.android.settings.cyanogenmod.superuser
+## IT NEEDS THIS PATCH FOR EMBEDDING INTO SETTINGS ##
+## http://review.cyanogenmod.org/#/c/32957/ ##
+
 PRODUCT_VERSION_MAJOR = 0
 PRODUCT_VERSION_MINOR = 7
 PRODUCT_VERSION_MAINTENANCE = BETA
