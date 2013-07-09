@@ -17,8 +17,17 @@ PRODUCT_PACKAGES += \
 		ShareLogs \
 		PerformanceTool \
 		Email \
-		busybox \
-		Superuser
+		busybox
+
+# Openssh
+PRODUCT_PACKAGES += \
+    scp \
+    sftp \
+    ssh \
+    sshd \
+    sshd_config \
+    ssh-keygen \
+		rsync
 
 
 # T-Mobile theme engine
