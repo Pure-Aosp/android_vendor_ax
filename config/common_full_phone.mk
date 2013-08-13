@@ -1,5 +1,5 @@
-# Inherit common AX stuff
-$(call inherit-product, vendor/ax/config/common_full.mk)
+# Inherit common PAP stuff
+$(call inherit-product, vendor/pap/config/common_full.mk)
 
 # Default ringtone
 PRODUCT_PROPERTY_OVERRIDES += \

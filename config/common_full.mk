@@ -1,8 +1,8 @@
-# Inherit common AX stuff
-$(call inherit-product, vendor/ax/config/common.mk)
+# Inherit common PAP stuff
+$(call inherit-product, vendor/pap/config/common.mk)
 
 
-# Optional AX packages
+# Optional PAP packages
 PRODUCT_PACKAGES += \
     HoloSpiralWallpaper \
     MagicSmokeWallpapers \
@@ -15,27 +15,4 @@ PRODUCT_PACKAGES += \
 		Torch \
 		LockClock \
 		ShareLogs \
-		PerformanceTool \
-		Email \
-		busybox
-
-# Openssh
-PRODUCT_PACKAGES += \
-    scp \
-    sftp \
-    ssh \
-    sshd \
-    sshd_config \
-    ssh-keygen \
-		rsync
-
-
-# T-Mobile theme engine
-PRODUCT_PACKAGES += \
-       ThemeManager \
-       ThemeChooser \
-       com.tmobile.themes
-
-PRODUCT_COPY_FILES += \
-       vendor/ax/config/permissions/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml
-
+		Email

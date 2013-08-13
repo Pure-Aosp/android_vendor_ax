@@ -1,13 +1,5 @@
 PRODUCT_BRAND ?= aosp
 
-ifdef AX_NIGHTLY
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=aospN
-else
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.rommanager.developerid=aosp+
-endif
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -24,59 +16,50 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/ax/overlay/dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/ax/overlay/common
-
-#SuperUserEmbedding
-SUPERUSER_EMBEDDED := true
-SUPERUSER_PACKAGE_PREFIX := com.android.settings.cyanogenmod.superuser
-## IT NEEDS THIS PATCH FOR EMBEDDING INTO SETTINGS ##
-## http://review.cyanogenmod.org/#/c/32957/ ##
+PRODUCT_PACKAGE_OVERLAYS += vendor/pap/overlay/dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/papoverlay/common
 
 PRODUCT_VERSION_MAJOR = 0
-PRODUCT_VERSION_MINOR = 7
+PRODUCT_VERSION_MINOR = 2
 PRODUCT_VERSION_MAINTENANCE = BETA
 
-# Set AX_BUILDTYPE
-ifdef AX_NIGHTLY
-    AX_BUILDTYPE := NIGHTLY
+# Set PAP_BUILDTYPE
+ifdef PAP_NIGHTLY
+    PAP_BUILDTYPE := NIGHTLY
 endif
-ifdef AX_EXPERIMENTAL
-    AX_BUILDTYPE := EXPERIMENTAL
+ifdef PAP_EXPERIMENTAL
+    PAP_BUILDTYPE := EXPERIMENTAL
 endif
-ifdef AX_RELEASE
-    AX_BUILDTYPE := RELEASE
+ifdef PAP_RELEASE
+    PAP_BUILDTYPE := RELEASE
 endif
 
-ifdef AX_BUILDTYPE
-    ifdef AX_EXTRAVERSION
+ifdef PAP_BUILDTYPE
+    ifdef PAP_EXTRAVERSION
         # Force build type to EXPERIMENTAL
-        AX_BUILDTYPE := EXPERIMENTAL
+        PAP_BUILDTYPE := EXPERIMENTAL
         # Add leading dash to AX_EXTRAVERSION
-        AX_EXTRAVERSION := -$(AX_EXTRAVERSION)
+        PAP_EXTRAVERSION := -$(AX_EXTRAVERSION)
     endif
-else
-    # If AX_BUILDTYPE is not defined, set to UNOFFICIAL
-    AX_BUILDTYPE := UNOFFICIAL
-    AX_EXTRAVERSION :=
-endif
 
-ifdef AX_RELEASE
-    AX_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(AX_BUILD)
+ifdef PAP_RELEASE
+    PAP_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(PAP_BUILD)
 else
     ifeq ($(PRODUCT_VERSION_MINOR),0)
-        AX_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(AX_BUILDTYPE)-$(AX_BUILD)$AX_EXTRAVERSION)
+        PAP_VERSION := $(PRODUCT_VERSION_MAJOR)-$(shell date -u +%Y%m%d)-$(PAP_BUILDTYPE)-$(PAP_BUILD)$PAP_EXTRAVERSION)
     else
-        AX_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(AX_BUILDTYPE)-$(AX_BUILD)$(AX_EXTRAVERSION)
+        PAP_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(PAP_BUILDTYPE)-$(PAP_BUILD)$(PAP_EXTRAVERSION)
     endif
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.AX.version=$(AX_VERSION) \
-  ro.modversion=Ax-$(AX_VERSION) \
+  ro.PAP.version=$(PAP_VERSION) \
+  ro.modversion=pap-$(PAP_VERSION) \
   ro.goo.developerid=Lloir \
-  ro.goo.rom=Aosp+ \
+  ro.goo.rom=PureAosp \
   ro.goo.version=$(shell date +%s)
 
 
 -include $(WORKSPACE)/hudson/image-auto-bits.mk
+
+endif
