@@ -1,5 +1,5 @@
-# Inherit common AX stuff
-$(call inherit-product, vendor/ax/config/common.mk)
+# Inherit common PAP stuff
+$(call inherit-product, vendor/pap/config/common.mk)
 
 
 # Optional AX packages
