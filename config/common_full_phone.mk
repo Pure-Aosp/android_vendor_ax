@@ -1,5 +1,5 @@
-# Inherit common AX stuff
-$(call inherit-product, vendor/ax/config/common_full.mk)
+# Inherit common PaP stuff
+$(call inherit-product, vendor/pap/config/common_full.mk)
 
 # Default ringtone
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -10,10 +10,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
   Mms
 
-# BT config
-PRODUCT_COPY_FILES += \
-    system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
- # Required AX packages
-PRODUCT_PACKAGES += \
-  Superuser \
-   su
+# Required AX packages
+# PRODUCT_PACKAGES += \
+#  Superuser \
+#   su
