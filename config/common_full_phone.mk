@@ -13,7 +13,9 @@ PRODUCT_PACKAGES += \
 # BT config
 PRODUCT_COPY_FILES += \
     system/bluetooth/data/main.conf:system/etc/bluetooth/main.conf
- # Required AX packages
+
+# Required AX packages
 PRODUCT_PACKAGES += \
-  Superuser \
+  Launcher3
+  #Superuser \
    su
