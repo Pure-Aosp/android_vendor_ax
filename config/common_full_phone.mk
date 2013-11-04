@@ -11,6 +11,7 @@ PRODUCT_PACKAGES += \
   Mms
 
 # Required AX packages
-# PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
+   Launcher3
 #  Superuser \
 #   su
