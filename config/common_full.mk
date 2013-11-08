@@ -12,7 +12,12 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     VisualizationWallpapers \
     PhaseBeam \
-		Torch \
-		LockClock \
-		ShareLogs \
-		Email
+    busybox
+
+# SU
+PRODUCT_COPY_FILES += \
+    vendor/pap/prebuilt/common/su/su:system/xbin/su \
+    vendor/pap/prebuilt/common/su/su:system/xbin/daemonsu \
+    vendor/pap/prebuilt/common/su/su:system/bin/.ext/.su \
+    vendor/pap/prebuilt/common/su/Superuser.apk:system/app/Superuser.apk
+
